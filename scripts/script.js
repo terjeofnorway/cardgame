@@ -13,7 +13,8 @@ function loadCardsFromAPI(filterBySearch) {
 
 /**
  * Gather all the information and the card list you need.
- * @param cards
+ * @param allCards {Array} The list of all the fetched cards.
+ * @param filterBySearch {String} A string to filter.
  */
 function gather(allCards, filterBySearch) {
   var cardsToBeDisplayed = [];
@@ -45,7 +46,7 @@ function gather(allCards, filterBySearch) {
   // If nothing was found, create a message telling the user!
   if(cardsToBeDisplayed.length === 0) {
     var nothingMessage = document.createElement('div');
-    nothingMessage.textContent = 'Nothing was found!'
+    nothingMessage.textContent = 'Nothing was found!';
     div1.appendChild(nothingMessage);
   }
 
@@ -104,7 +105,6 @@ function doCardSearch(event) {
   event.preventDefault();
   var searchString = document.getElementById('search').value;
   loadCardsFromAPI(searchString);
-
 }
 
 
